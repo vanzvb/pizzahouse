@@ -2,8 +2,8 @@
 
 @section('Pizzas')
 <div class="content">
-    <input type="text" placeholder="Search...">
-    <input type="date">
+    <input type="text" placeholder="Search..." >
+    
 </div>
 <div class="wrapper pizza-index">
     <h1>Pizza Orders</h1>

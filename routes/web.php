@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\SearchController;
+use App\Models\Pizza;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +42,4 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::get('/search', [SearchController::class, 'search'])->name('web.search');

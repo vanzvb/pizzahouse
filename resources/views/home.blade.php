@@ -17,7 +17,11 @@
                     {{ __('You are logged in!') }} <br>
                     <a href="/pizzas/create">Order Pizza</a> 
                     <br>
+
+                    <div class="col-lg-4">
                     <a href="/pizzas/">Order List</a>
+                    </div>
+                    
                 </div>
             </div>
         </div>
