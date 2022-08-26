@@ -56,7 +56,7 @@ class PizzaController extends Controller
         $pizza->toppings = request('toppings');
 
         $pizza->save();
-
+        
         return redirect('/')->with('mssg','Thanks for your order');
     }
 
@@ -65,5 +65,24 @@ class PizzaController extends Controller
         $pizza->delete();
         
         return redirect('/pizzas');
+    }
+
+    public function find()
+    {
+        return view('find');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $datas = Pizza::select("name")
+        ->where("name", "LIKE", "%{$request->terms}%")
+        ->get();
+        $datamodified = array();
+
+        foreach ($datas as $data)
+        {
+            $datamodified[] = $data->name;
+        }
+        return response()->json($datamodified);
     }
 }

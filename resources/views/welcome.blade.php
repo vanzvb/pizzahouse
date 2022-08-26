@@ -59,12 +59,16 @@
                             </li>
                             <li>
                                 <i class="far fa-clock"></i>
-                                
-                                <?php 
-     date_default_timezone_set('Asia/Manila');
-     $date = date('m/d/Y h:i:s a', time());
-     echo "Service Time"," " , $date;
-?>
+
+                                <?php
+                                date_default_timezone_set('Asia/Manila');
+                                // $date = date('m/d/Y h:i:s a', time());
+                                $month = date('m', time());
+                                $dateObj   = DateTime::createFromFormat('!m', $month);
+                                $monthName = $dateObj->format('F'); // March
+                                $date = date('d Y ', time());
+                                echo 'Date',': ',$monthName,' ', $date, '';
+                                ?>
                             </li>
                         </ul>
                     </div>
@@ -100,7 +104,7 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarNav">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item active">
+                                    <li class="nav-item ">
                                         <a class="nav-link" href="#">Home
                                         </a>
                                     </li>
@@ -339,9 +343,13 @@
             </div>
             <div class="row news-row">
                 <div class="col-md-6">
+                    <a href="{{ url('/home') }}">
                     <div class="news-card">
+                        
                         <div class="image">
-                            <img src="/images/blog/blog_01.jpg" alt="">
+                            
+                                <img src="/images/blog/blog_01.jpg" alt="">
+                           
                         </div>
                         <div class="detail">
                             <h3>Latest News about Smarteye</h3>
@@ -353,7 +361,9 @@
                                 Read More
                             </p>
                         </div>
+                    
                     </div>
+                </a>
                 </div>
                 <div class="col-md-6">
                     <div class="news-card">
